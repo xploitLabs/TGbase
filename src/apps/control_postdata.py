@@ -19,3 +19,10 @@ async def controler(cliente, data_response):
 
     if function_name == "rm":
         await data_response.message.delete()
+
+    else:
+        await cliente.answer_callback_query(
+            callback_query_id=data_response.id,
+            text=f"""⚠️ Function not set.\nFunction: {function_name}, postdata: {postdata})""",
+            show_alert="true"
+        )
