@@ -37,10 +37,10 @@ def genCode(length=7):
 def clear_terminal():
   os.system('cls' if os.name == 'nt' else 'clear')
 
-def load_json():
+def load_json(file_config="config"):
     current_dir = os.path.dirname(os.path.abspath(__file__))
     dir_principal = os.path.abspath(os.path.join(current_dir, '..', '..'))
-    route = os.path.join(dir_principal, 'config', 'config.json')
+    route = os.path.join(dir_principal, 'config', f"{file_config}.json")
     with open(route) as archivo_config:
         config = json.load(archivo_config)    
     return config

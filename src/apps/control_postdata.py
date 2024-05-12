@@ -1,8 +1,12 @@
 from pyrogram import Client
-from moduls.utils.utils import getVAR
+from moduls.utils.utils import getVAR, load_json
 
 from apps.basics import welcome
 from apps.basics import api_sample
+
+from apps.llm import iaUse
+
+CONFIG_LLM = load_json("llmConfig")
 
 @Client.on_callback_query()
 async def controler(cliente, data_response):
@@ -24,6 +28,9 @@ async def controler(cliente, data_response):
 
         elif function_name == "rm":
             await data_response.message.delete()
+
+        elif function_name == CONFIG_LLM["COMMAND"]:
+            await iaUse.llmUse(cliente, data_response.message, postdata)
 
         else:
             await cliente.answer_callback_query(

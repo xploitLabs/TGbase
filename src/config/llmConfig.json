@@ -1,0 +1,8 @@
+{
+    "API_KEY": "PUT HERE YOU API KEY (https://aistudio.google.com/app/apikey)",
+    "PROMPT": "Eres una IA llamada 'Control', eres muy inteligente y creativo.",
+    "DIR_CHATS": "apps/ia/llm/moduls/chats",
+    "COMMAND": "llm",
+    "prefixes": ["/", "."],
+    "manual": "Este es un comando que sirve para hablar con una IA"
+}
