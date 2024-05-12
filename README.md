@@ -14,7 +14,6 @@ Crear una plantilla enfocada en la productividad y sustentabilidad de proyectos 
 ## Requisitos 🛠️
 
 - <code>pyrogram</code> Una librería que permite comunicarse con la API de telegram.
-- <code>Google.generatuveAI</code> Una librería que te permitirá conversar con una IA por medio de telegram
 
 ## Compatibilidad 🔨
 
