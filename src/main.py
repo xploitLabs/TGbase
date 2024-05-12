@@ -1,7 +1,7 @@
 import argparse
 from moduls.utils import utils
 from pyrogram import Client
-import base64, sys
+import base64, sys, requests
 
 if __name__ == "__main__":
     # Controlador de parámetros
@@ -23,6 +23,24 @@ if __name__ == "__main__":
     utils.anim(base64.b64decode(f"""CiBfX19fXyBfX19fXyBfICAgICAgICAgICAgICAgCnxfICAgX3wgICBfX3wgfF8gX19fIF9fXyBfX18gCiAgfCB8IHwgIHwgIHwgLiB8IC4nfF8gLXwgLV98CiAgfF98IHxfX19fX3xfX198X18sfF9fX3xfX198CiAgICAgICAgICAgICAgICAgICAgICAgICAgICB4cGxvaXRMYWJz""").decode("utf-8"))
 
     print ()
+
+    # LOADING JSON CONFIG
+    utils.animINFO("Checking for internet connection....")
+    internet = False
+
+    try:
+        response = requests.get("http://www.google.com", timeout=5)
+        if response.status_code == 200:
+            utils.animERROR("Checking for updates...")
+
+
+        else:
+            utils.animERROR("No internet connection.")
+    except requests.ConnectionError:
+        utils.animERROR("No internet connection.")
+
+    if not internet:
+        sys.exit()
 
     # LOADING JSON CONFIG
     utils.animINFO("Loading the json config.")

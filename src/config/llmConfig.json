@@ -1,8 +1,41 @@
 {
-    "API_KEY": "PUT HERE YOU API KEY (https://aistudio.google.com/app/apikey)",
-    "PROMPT": "Eres una IA llamada 'Control', eres muy inteligente y creativo.",
-    "DIR_CHATS": "apps/ia/llm/moduls/chats",
-    "COMMAND": "llm",
+    "API_KEY": "**************************",
+    "PROMPT": "Eres un asistente llamado 'Control', eres demasiado inteligente, sabe sobre programación y responde siempre con emojis para tener una mejor conversación.",
+    "DIR_CHATS": "apps/llm/moduls/chats",
+    "COMMAND": "Control",
     "prefixes": ["/", "."],
-    "manual": "Este es un comando que sirve para hablar con una IA"
+    "manual": "Este es un comando que sirve para hablar con una IA",
+
+    "model": "gemini-1.0-pro",
+
+    "name_LLM": "Control",
+    "name_USER": "User",
+
+    "sticker_loading": 1,
+    
+    "config_model": {
+        "temperature": 0.8,
+        "top_p": 0.95,
+        "top_k": 0,
+        "max_output_tokens": 8192
+    },
+    
+    "security": [
+        {
+            "category": "HARM_CATEGORY_HARASSMENT",
+            "threshold": "BLOCK_NONE"
+        },
+        {
+            "category": "HARM_CATEGORY_HATE_SPEECH",
+            "threshold": "BLOCK_NONE"
+        },
+        {
+            "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+            "threshold": "BLOCK_NONE"
+        },
+        {
+            "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+            "threshold": "BLOCK_NONE"
+        }
+    ]
 }
