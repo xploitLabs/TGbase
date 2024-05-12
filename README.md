@@ -20,7 +20,7 @@ Crear una plantilla enfocada en la productividad y sustentabilidad de proyectos 
 
 |   Entorno   | Es compatible | Probado en |
 |:------------:|:------------:|:------------:|
-|   Windows   |   ❓   |   ❌   |
+|   Windows   |   ❌   |   ❌   |
 |   Linux     |   ✅   |   ✅   |
 
 ## Screenshot 📸
