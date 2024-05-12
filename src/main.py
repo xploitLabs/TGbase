@@ -1,7 +1,21 @@
 import argparse
 from moduls.utils import utils
 from pyrogram import Client
-import base64, sys, requests
+import base64, sys, requests, git
+
+def git_pull(repo_path=".."):
+    repo = git.Repo(repo_path)
+    origin = repo.remotes.origin
+    origin.pull()
+
+def forUpdate(owner, project, local_path=".."):
+    repo = git.Repo(local_path)
+    local_hash = repo.head.commit.hexsha
+
+    response = requests.get(f"https://api.github.com/repos/{owner}/{project}/commits")
+    remote_hash = response.json()[0]["sha"]
+
+    return str(local_hash) == str(remote_hash)
 
 if __name__ == "__main__":
     # Controlador de parámetros
@@ -31,8 +45,26 @@ if __name__ == "__main__":
     try:
         response = requests.get("http://www.google.com", timeout=5)
         if response.status_code == 200:
-            utils.animERROR("Checking for updates...")
+            utils.animINFO("Checking for updates...")
+            update = forUpdate("xploitLabs", "TGbase")
+            if update:
+                utils.animDONE("System up to date.")
+                internet = True
 
+            else:
+                utils.animINFO("El sistema encontró una nueva actualización disponible, ¿Deseas actualizarlo? ")
+                responseUser = input("[Si/No] >>> ").lower()
+
+                LISTA_A = ["si", "s", "y", "yes", ""]
+                LISTA_B = ["no", "n", "any"]
+
+                if responseUser in LISTA_A:
+                    utils.animINFO("Actualizando sistema...")
+                    git_pull()
+                    utils.animDONE("Sistema actualizado de manera exitosa, ejecuta nuevamente el bot.")                    
+
+                else:
+                    internet = True
 
         else:
             utils.animERROR("No internet connection.")
